@@ -1,6 +1,5 @@
 {
   "name": "nginx-api",
-  "type": "module",
   "version": "1.0.0",
   "description": "personal project which I am making open source, this may not work for you but it might idk.",
   "main": "src/index.js",

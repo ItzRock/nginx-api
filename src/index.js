@@ -12,9 +12,9 @@
 */
 
 // .env is in the gitignore so you'll need to make a .env and pick a port number
-import { config } from "dotenv"; config();
-import * as fs from "fs";
-import express from "express";
+require("dotenv").config();
+const fs = require("fs");
+const express = require("express");
 
 const server = express();
 
@@ -22,7 +22,7 @@ const server = express();
 fs.readdir("./src/apis", async (err, data) => {
 	if (err) console.log(err);
 	else for(const api of data){
-		const imported = (await import(`./apis/${api}/index.js`)).default;
+		const imported = require(`./apis/${api}/index.js`);
 	
 		// We're gonna assume each one returns a function which expects the express client.
 		imported(server);
